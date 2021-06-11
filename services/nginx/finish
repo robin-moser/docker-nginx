@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo stopping nginx...
+
+exec s6-svscanctl -t /var/run/s6/services
