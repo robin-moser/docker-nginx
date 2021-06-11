@@ -3,7 +3,6 @@
 # ++++++++++++++++++++++++++++++++++++++
 
 FROM alpine:edge
-
 LABEL maintainer="Robin Moser"
 
 ARG S6_VERSION="2.1.0.2"
@@ -30,13 +29,13 @@ RUN tar --directory / --extract --file /tmp/s6-overlay-${S6_ARCH}.tar.gz \
     && rm -rf /tmp/s6-overlay-${S6_ARCH}.tar.gz
 
 # copy S6 service config
-COPY services/ /etc/services.d
+COPY resources/services.d/ /etc/services.d
 
 # copy S6 init scipts
 COPY resources/entrypoint.d/ /etc/cont-init.d
 
 # copy nginx config
-COPY nginx/ /etc/nginx/
+COPY config/nginx/ /etc/nginx/
 
 # docker healthcheck
 HEALTHCHECK --timeout=2s --interval=10s --start-period=5m --retries=3 \
