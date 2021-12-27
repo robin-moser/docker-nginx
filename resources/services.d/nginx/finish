@@ -1,5 +1,5 @@
-#!/bin/sh
+#!/usr/bin/execlineb -S0
 
-echo stopping nginx...
+foreground { echo stopping nginx... }
 
-exec s6-svscanctl -t /var/run/s6/services
+s6-svscanctl -t /var/run/s6/services
