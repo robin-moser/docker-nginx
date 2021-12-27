@@ -20,6 +20,10 @@ RUN apk add --no-cache \
         tzdata \
         nginx
 
+# add the application user
+RUN addgroup -g 1000 application \
+	&& adduser -u 1000 -G application -DH application
+
 # delete default config files
 RUN rm -rf /etc/nginx/http.d
 
