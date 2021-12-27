@@ -24,14 +24,14 @@ RUN apk add --no-cache \
 RUN rm -rf /etc/nginx/http.d
 
 # Install s6-overlay
-ADD https://github.com/just-containers/s6-overlay/releases/download/v${S6_VERSION}/s6-overlay-${S6_ARCH}.tar.gz /tmp/
+ADD https://github.com/just-containers/s6-overlay/releases/download/\
+v${S6_VERSION}/s6-overlay-${S6_ARCH}.tar.gz /tmp/
+
 RUN tar --directory / --extract --file /tmp/s6-overlay-${S6_ARCH}.tar.gz \
     && rm -rf /tmp/s6-overlay-${S6_ARCH}.tar.gz
 
-# copy S6 service config
+# copy S6 config and scripts
 COPY resources/services.d/ /etc/services.d
-
-# copy S6 init scipts
 COPY resources/entrypoint.d/ /etc/cont-init.d
 
 # copy nginx config
