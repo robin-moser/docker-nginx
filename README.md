@@ -9,7 +9,7 @@ A simple Docker container which contains the nginx webserver on top of alpine:ed
 
 | Variable       | Default         |
 | -------------- | --------------- |
-| TIMEZONE       | `Europe/Berlin` |
+| TZ             | `Europe/Berlin` |
 | NGINX_WEB_ROOT | `/app/src`      |
 | NGINX_DOMAIN   |                 |
 | NGINX_INDEX    | `index.html`    |

@@ -10,7 +10,7 @@ ARG S6_ARCH="amd64"
 
 # default ENV variables
 ENV \
-    TIMEZONE="Europe/Berlin" \
+    TZ="Europe/Berlin" \
     NGINX_INDEX="index.html" \
     NGINX_WEB_ROOT="/app/src"
 
@@ -36,6 +36,9 @@ COPY resources/entrypoint.d/ /etc/cont-init.d
 
 # copy nginx config
 COPY config/nginx/ /etc/nginx/
+
+# Preparing the environment
+WORKDIR ${NGINX_WEB_ROOT}
 
 # docker healthcheck
 HEALTHCHECK --timeout=2s --interval=10s --start-period=5m --retries=3 \
