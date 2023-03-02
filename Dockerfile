@@ -2,11 +2,15 @@
 # Dockerfile: robinmoser/nginx
 # ++++++++++++++++++++++++++++++++++++++
 
-FROM alpine:edge
+ARG ALPN_VERSION="3.17"
+ARG S6_VERSION="3.1.4.1"
+ARG S6_ARCH="x86_64"
+
+FROM alpine:$ALPN_VERSION
 LABEL maintainer="Robin Moser"
 
-ARG S6_VERSION="2.1.0.2"
-ARG S6_ARCH="amd64"
+ARG S6_VERSION
+ARG S6_ARCH
 
 # default ENV variables
 ENV \
@@ -29,13 +33,19 @@ RUN rm -rf /etc/nginx/http.d
 
 # Install s6-overlay
 ADD https://github.com/just-containers/s6-overlay/releases/download/\
-v${S6_VERSION}/s6-overlay-${S6_ARCH}.tar.gz /tmp/
+v${S6_VERSION}/s6-overlay-noarch.tar.xz /tmp/
 
-RUN tar --directory / --extract --file /tmp/s6-overlay-${S6_ARCH}.tar.gz \
-    && rm -rf /tmp/s6-overlay-${S6_ARCH}.tar.gz
+RUN tar --directory / --extract --file /tmp/s6-overlay-noarch.tar.xz \
+    && rm -rf /tmp/s6-overlay-noarch.tar.xz
+
+ADD https://github.com/just-containers/s6-overlay/releases/download/\
+v${S6_VERSION}/s6-overlay-${S6_ARCH}.tar.xz /tmp/
+
+RUN tar --directory / --extract --file /tmp/s6-overlay-${S6_ARCH}.tar.xz \
+    && rm -rf /tmp/s6-overlay-${S6_ARCH}.tar.xz
 
 # copy S6 config and scripts
-COPY resources/services.d/ /etc/services.d
+COPY resources/services.d/ /etc/s6-overlay/s6-rc.d/
 COPY resources/entrypoint.d/ /etc/cont-init.d
 
 # copy nginx config

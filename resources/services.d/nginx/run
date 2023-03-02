@@ -1,4 +1,4 @@
-#!/usr/bin/execlineb -P
+#!/command/execlineb -P
 
 foreground { echo starting nginx... }
 

@@ -1,4 +1,4 @@
-#!/usr/bin/execlineb -S0
+#!/command/execlineb -S0
 
 foreground { echo stopping nginx... }
 
