@@ -1,6 +1,6 @@
 # docker-nginx
 
-![Build Status](https://img.shields.io/github/workflow/status/robin-moser/docker-nginx/Docker%20Release?logo=github&logoColor=white)
+![Build Status](https://img.shields.io/github/actions/workflow/status/robin-moser/docker-nginx/docker-release.yml?logo=github&logoColor=white)
 [![Docker Pulls](https://img.shields.io/docker/pulls/robinmoser/nginx?logo=docker&logoColor=white&color=blue)](https://hub.docker.com/r/robinmoser/nginx)
 
 A simple Docker container which contains the nginx webserver on top of alpine:edge. It uses [S6-overlay](https://github.com/just-containers/s6-overlay) as an init system to start additional services.
