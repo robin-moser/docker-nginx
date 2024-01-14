@@ -2,8 +2,8 @@
 # Dockerfile: robinmoser/nginx
 # ++++++++++++++++++++++++++++++++++++++
 
-ARG ALPN_VERSION="3.17"
-ARG S6_VERSION="3.1.4.1"
+ARG ALPN_VERSION="3.19"
+ARG S6_VERSION="3.1.6.2"
 ARG S6_ARCH="x86_64"
 
 FROM alpine:$ALPN_VERSION
