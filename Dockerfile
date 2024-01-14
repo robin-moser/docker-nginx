@@ -20,14 +20,16 @@ ENV \
     S6_KEEP_ENV=1
 
 RUN apk add --no-cache \
-        ca-certificates \
-        curl \
-        tzdata \
-        nginx
+    ca-certificates \
+    curl \
+    tzdata \
+    nginx
 
 # add the application user
 RUN addgroup -g 1000 application \
-	&& adduser -u 1000 -G application -DH application
+    && adduser -u 1000 -G application -DH application \
+    && chown application:application /var/lib/nginx \
+    && chown -R application:application /var/lib/nginx/tmp
 
 # delete default config files
 RUN rm -rf /etc/nginx/http.d
