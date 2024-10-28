@@ -59,6 +59,6 @@ WORKDIR ${NGINX_WEB_ROOT}
 
 # docker healthcheck
 HEALTHCHECK --timeout=2s --interval=10s --start-period=5m --retries=3 \
-    CMD curl --silent --fail http://localhost/ping -H 'Host: healthcheck.local'
+    CMD curl --silent --fail http://127.0.0.1/ping -H 'Host: healthcheck.local'
 
 ENTRYPOINT ["/init"]
