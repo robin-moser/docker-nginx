@@ -46,5 +46,7 @@ jobs:
           push: true
           tags: |
             robinmoser/${{ env.IMAGENAME }}:latest
-            ${{ secrets.REGISTRY_URL }}/${{ env.IMAGENAME }}:${{ env.VERSION }}.${{ github.run_number }}
+            robinmoser/${{ env.IMAGENAME }}:${{ env.VERSION }}
+            robinmoser/${{ env.IMAGENAME }}:${{ env.VERSION }}.${{ github.run_number }}
             ${{ secrets.REGISTRY_URL }}/${{ env.IMAGENAME }}:${{ env.VERSION }}
+            ${{ secrets.REGISTRY_URL }}/${{ env.IMAGENAME }}:${{ env.VERSION }}.${{ github.run_number }}
