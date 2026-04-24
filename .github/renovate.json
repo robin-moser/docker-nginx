@@ -5,6 +5,18 @@
     ":approveMajorUpdates",
     ":combinePatchMinorReleases"
   ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["Dockerfile$"],
+      "matchStrings": [
+        "ARG S6_VERSION=\"(?<currentValue>.*?)\""
+      ],
+      "depNameTemplate": "just-containers/s6-overlay",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v?(?<version>.*)$"
+    }
+  ],
   "packageRules": [
     {
       "matchManagers": ["github-actions"],
