@@ -8,7 +8,9 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": ["Dockerfile$"],
+      "managerFilePatterns": [
+        "/Dockerfile$/"
+      ],
       "matchStrings": [
         "ARG S6_VERSION=\"(?<currentValue>.*?)\""
       ],
