@@ -2,7 +2,7 @@
 # Dockerfile: robinmoser/nginx
 # ++++++++++++++++++++++++++++++++++++++
 
-ARG ALPN_VERSION="3.23"
+ARG ALPN_VERSION="3.24"
 ARG S6_VERSION="3.2.2.0"
 ARG S6_ARCH="x86_64"
 
