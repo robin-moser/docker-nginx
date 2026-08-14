@@ -3,7 +3,7 @@
 # ++++++++++++++++++++++++++++++++++++++
 
 ARG ALPN_VERSION="3.24"
-ARG S6_VERSION="3.2.2.0"
+ARG S6_VERSION="3.2.3.2"
 ARG S6_ARCH="x86_64"
 
 FROM alpine:$ALPN_VERSION
