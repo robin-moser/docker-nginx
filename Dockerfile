@@ -15,6 +15,7 @@ ARG S6_ARCH
 # default ENV variables
 ENV \
     TZ="Europe/Berlin" \
+    NGINX_GZIP="on" \
     NGINX_INDEX="index.html" \
     NGINX_WEB_ROOT="/app/src" \
     S6_KEEP_ENV=1

@@ -5,6 +5,8 @@ set -e
 # nginx server config directory
 SERVER_DIR=/etc/nginx/server.d
 
+sed -i "s#<NGINX_GZIP>#$NGINX_GZIP#" /etc/nginx/conf.d/10-gzip.conf
+
 # if root domain isn't set, set domain variable to the default
 # "catch all" underscore and delete the special redirect server config
 if [ -z "$NGINX_DOMAIN" ]; then
