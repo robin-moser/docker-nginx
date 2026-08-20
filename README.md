@@ -7,13 +7,14 @@ A simple Docker container which contains the nginx webserver on top of alpine:ed
 
 ## Environment Variables
 
-| Variable       | Default         |
-| -------------- | --------------- |
-| TZ             | `Europe/Berlin` |
-| NGINX_GZIP     | `on`            |
-| NGINX_WEB_ROOT | `/app/src`      |
-| NGINX_DOMAIN   |                 |
-| NGINX_INDEX    | `index.html`    |
+| Variable          | Default          |
+| ----------------- | ---------------- |
+| TZ                | `Europe/Berlin`  |
+| NGINX_GZIP        | `on`             |
+| NGINX_SERVER_ROOT | `NGINX_WEB_ROOT` |
+| NGINX_WEB_ROOT    | `/app/src`       |
+| NGINX_DOMAIN      |                  |
+| NGINX_INDEX       | `index.html`     |
 
 If the variable `NGINX_DOMAIN` is set, every request that comes from a different domain will be redirected to the `NGINX_DOMAIN` while keeping its path and parameters.
 
